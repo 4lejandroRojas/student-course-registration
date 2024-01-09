@@ -23,7 +23,7 @@
    CREATE TABLE subject (
      id int NOT NULL AUTO_INCREMENT,
      subject_name varchar(45) DEFAULT NULL,
-     marks int DEFAULT NULL,
+     marks_obtained int DEFAULT NULL,
      student_id int DEFAULT NULL,
      PRIMARY KEY (id)
    );
