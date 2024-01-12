@@ -1,10 +1,8 @@
 package com.globant.studentcourseregistration.response;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.globant.studentcourseregistration.entity.Student;
-import com.globant.studentcourseregistration.entity.Subject;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,8 +24,14 @@ public class StudentResponse {
 	private String city;
 	
 	private List<SubjectResponse> learningSubjects;
+
+	//For internal use. Dont put in the schema
+	private Student student;
+
+	private String fullName;
 	
 	public StudentResponse (Student student) {
+		this.student = student;
 		this.id = student.getId();
 		this.firstName = student.getFirstName();
 		this.lastName = student.getLastName();
@@ -35,13 +39,6 @@ public class StudentResponse {
 		
 		this.street = student.getAddress().getStreet();
 		this.city = student.getAddress().getCity();
-		
-		if (student.getLearningSubjects() != null) {
-			learningSubjects = new ArrayList<>();
-			for (Subject subject: student.getLearningSubjects()) {
-				learningSubjects.add(new SubjectResponse(subject));
-			}
-		}
 	}
 
 }
